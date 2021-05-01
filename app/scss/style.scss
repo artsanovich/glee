@@ -1,7 +1,421 @@
+@import 'reset';
 @import 'vars';
 @import 'fonts';
+@import 'libs';
 @import 'global';
-@import 'reset';
+
+
+.header{
+    padding: 45px 0;
+    &__inner{
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.logo{
+    &:focus{
+        outline: transparent;
+        box-shadow: 0 0 0 3px #8ad2ff;
+    }
+}
+
+.menu{
+    padding-left: 150px;
+    &__list{
+        display: flex;
+        padding: 5px 0;
+    }
+    &__item{
+        &:not(:last-child){
+            margin-right: 35px;
+        }
+    }
+    &__link{
+        position: relative;
+        font-size: 15px;
+        line-height: 1.3;
+        @extend %rubik-500;
+        &::before{
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: #ffc38f;
+            transition: 0.3s;
+            transform: scaleX(0);
+            content: '';
+        }
+        &:hover::before{
+            transform: scaleX(1);
+        }
+        &:focus{
+            outline: transparent;
+            box-shadow: 0 0 0 3px #8ad2ff;
+        }
+    }
+}
+
+.user-nav{
+    display: flex;
+    &__search-btn{
+        position: relative;
+        width: 50px;
+        height: 50px;
+        margin-right: 20px;
+        border-radius: 50%;
+        background-color: #edf1f4;
+        transition: background-color 0.3s;
+        @extend %button;
+        &::after{
+            top: 17px;
+            left: 18px;
+            width: 16px;
+            height: 16px;
+            background-image: url('../images/icon/search.svg');
+            @extend %bg-icon;
+        }
+        &:focus{
+            outline: transparent;
+            box-shadow: 0 0 0 3px #8ad2ff;
+        }
+        &:hover{
+            background-color: #c4cace;
+        }   
+    }
+    &__sort{
+        display: flex;
+        position: relative;
+        margin-right: 20px;
+    }
+    &__link{
+        display: block;
+        width: 90px;
+        height: 50px;
+        background-color: #fcd7b6;
+        transition: background-color 0.3s;
+        &--liked{
+            border-radius: 50px 0 0 50px;
+            &::before{
+                top: 19px;
+                left: 40px;
+                width: 18px;
+                height: 18px;
+                background-image: url('../images/icon/heart.svg');
+                @extend %bg-icon;  
+            }
+            &::after{
+                position: absolute;
+                top: 9px;
+                left: 90px;
+                width: 1px;
+                height: 32px;
+                background-color: #FFFFFF;
+                content: '';
+            }
+        }
+        &--cart{
+            border-radius: 0 50px 50px 0;
+            &::before{
+                top: 17px;
+                right: 40px;
+                width: 20px;
+                height: 18px;
+                background-image: url('../images/icon/cart.svg');
+                @extend %bg-icon;
+            }
+        }
+        &:focus{
+            outline: transparent;
+            box-shadow: inset 0 0 0 3px #8ad2ff;
+        }
+        &:hover{
+            background-color: #ffc38f;
+        }   
+    }
+    &__num{
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        background-color: #FFFFFF;
+        border-radius: 50%;
+        font-size: 10px;
+        text-align: center;
+        @extend %dmsans-400;
+        &--liked{
+            top: 10px;
+            left: 50px;
+        }
+        &--cart{
+            top: 10px;
+            right: 32px;
+        }
+    }
+    &__menu-btn{
+        position: relative;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: #a3bbc8;
+        transition: background-color 0.3s;
+        @extend %button;
+        &::before{
+            top: 17px;
+            left: 17px;
+            width: 16px;
+            height: 16px;
+            background-image: url('../images/icon/menu.svg');
+            @extend %bg-icon;
+        }
+        &:focus{
+            outline: transparent;
+            box-shadow: 0 0 0 3px #8ad2ff;
+        }
+        &:hover{
+            background-color: #79a5bd;
+        }   
+    }
+}
+
+.top-slider{
+    &__list{
+        padding-top: 100px;
+        background-color: #fcd7b6;
+    }
+    &__item{
+
+    }
+    &__wrapper{
+      display: flex;
+    }
+    &__content{
+
+    }
+    &__title{
+        max-width: 470px;
+        margin-bottom: 20px;
+        font-size: 72px;
+        line-height: 1;
+        text-transform: uppercase;
+        color: $accent-color;
+        @extend %rubik-500;
+    }
+    &__text{
+        max-width: 370px;
+        margin-bottom: 30px;
+        font-size: 18px;
+        line-height: 1.7;
+        color: $default-color;
+        @extend %rubik-400;
+    }
+    &__link{
+        position: relative;
+        max-width: 200px;
+        padding: 20px 25px;
+        font-size: 15px;
+        line-height: 0.8;
+        @extend %link-button;
+        @extend %rubik-500;
+        &::before{
+            position: absolute;
+            top: 22px;
+            right: 20px;
+            width: 22px;
+            height: 9px;
+            background-image: url('../images/icon/arrow.svg');
+            @extend %bg-icon;       
+        }
+        &:hover{
+            background-color: #4e9dc7;
+        }
+        &:focus{
+            outline: transparent;
+            box-shadow: 0 0 0 3px #8ad2ff;
+        }
+    }
+    &__img{
+        display: block;
+    }
+}
+
+.slick-dots{
+    display: flex;
+    justify-content: center;
+    li{
+        button{
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #fde3cc;
+            font-size: 11px;
+            line-height: 0.8;
+            color: $accent-color;
+            @extend %rubik-500;
+            @extend %button;
+            &:hover{
+                background-color: #c3d3ff;
+            }
+            &:focus{
+                outline: transparent;
+                box-shadow: 0 0 0 3px #8ad2ff;
+            }
+        }
+        &.slick-active{
+            button{
+                background-color: $white-color;
+            }
+        }
+    }
+}
+
+.footer{
+    &__top{
+        display: flex;
+        border-bottom: 1px solid #dae4e9;
+        padding: 65px 0;
+    }
+    &__logo{
+        display: inline-block;
+        transform: translateY(-15px);
+    }
+    &__info{
+        max-width: 200px;
+        padding-top: 30px;
+        &--location{
+            max-width: 195px;
+            margin-right: 100px;
+        }
+        &--more{
+             margin-right: 185px;
+        }
+        &--email{
+            max-width: 295px;
+            padding-left: 25px;
+        }
+    }
+    &__item{
+        margin-bottom: 5px;
+    }
+    &__text{
+        text-transform: uppercase;
+        font-size: 14px;
+        line-height: 1.7;
+        color: $light-gray-color;
+        @extend %rubik-400;
+        &--sub{
+            text-transform: none;
+            margin-bottom: 40px;
+        }
+    }
+    &__link{
+        margin-bottom: 5px;
+        font-size: 14px;
+        line-height: 1.7;
+        color: $light-gray-color;
+        transition: color 0.3s;
+        @extend %rubik-400;
+        &:hover{
+            color: #ffac6e;
+        }
+        &:focus{
+            outline: transparent;
+            box-shadow: 0 0 0 3px #8ad2ff;
+        }
+    }
+    &__title{
+        margin-bottom: 15px;
+        font-size: 16px;
+        line-height: 1.3;
+        text-transform: uppercase;
+        color: #1f2044;
+        @extend %dmsans-700;
+    }
+    &__form{
+        display: flex;
+    }
+    &__input{
+        max-width: 170px;
+        padding: 5px 15px;
+        background-color: #fef7f0;
+        border: none;
+        transition: background-color 0.3s;
+        &::placeholder{
+            font-size: 12px;
+            color: #234969;
+            @extend %dmsans-400;
+        }
+        &:hover{
+            background-color: #ffd9b8;
+        }
+        &:focus{
+            outline: transparent;
+            box-shadow: inset 0 0 0 3px #8ad2ff;
+        }
+    }
+    &__btn{
+        width: 100px;
+        padding: 5px 15px;
+        font-size: 14px;
+        line-height: 1.5;
+        @extend %dmsans-400;
+        @extend %button;
+        &:hover{
+            background-color: #589cc0;
+        }
+        &:focus{
+            box-shadow: inset 0 0 0 3px #8ad2ff;
+        }
+    }
+    &__bottom{
+        display: flex;
+        justify-content: space-between;
+    }
+    &__text{
+        &--copy{
+            text-transform: none;
+        }
+    }
+}
+
+.footer__bottom{
+    display: flex;
+    align-items: center;
+    padding: 30px 0;
+}
+
+.footer-nav{
+    display: flex;
+    &__item{
+        position: relative;
+        padding: 0 13px;
+        &:not(:last-child)::after{
+            position: absolute;
+            bottom: 0;
+            right: -2px;
+            font-size: 20px;
+            content: "|"
+        }
+    }
+    &__link{
+        font-size: 14px;
+        line-height: 2.3;
+        color: $light-gray-color;
+        transition: color 0.3s;
+        @extend %rubik-400;
+        &:hover{
+            color: #ffac6e;
+        }
+        &:focus{
+            outline: transparent;
+            box-shadow: 0 0 0 3px #8ad2ff;
+        }
+    }
+}
+
+
+
 
 
 @import 'media';

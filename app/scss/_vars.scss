@@ -1,0 +1,60 @@
+$default-color: #436372;
+$accent-color: #243f4d;
+$light-gray-color: #7b7b7b;
+$white-color: #ffffff;
+
+
+%bg-icon{
+    position: absolute;
+    content: '';
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+%link-button{
+    display: block;
+    background-color: #a3bbc8;
+    color: $white-color;
+    transition: background-color 0.3s;
+}
+
+%button{
+    outline: transparent;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    background-color: #a3bbc8;
+    color: $white-color;
+    transition: background-color 0.3s;
+}
+
+%poppins-700{
+    font-family: 'Poppins-Bold', sans-serif;
+    font-weight: 700;
+}
+
+%rubik-400{
+    font-family: 'Rubik-Regular', sans-serif;
+    font-weight: 400;
+}
+
+%rubik-500{
+    font-family: 'Rubik-Medium', sans-serif;
+    font-weight: 500;
+}
+
+%dmsans-400{
+    font-family: 'DMSans-Regular', sans-serif;
+    font-weight: 400;
+}
+
+%dmsans-500{
+    font-family: 'DMSans-Medium', sans-serif;
+    font-weight: 500;
+}
+
+%dmsans-700{
+    font-family: 'DMSans-Bold', sans-serif;
+    font-weight: 700;
+}
